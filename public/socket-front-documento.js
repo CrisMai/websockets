@@ -12,10 +12,13 @@ function emitirTextoEditor(dados) {
     socket.emit("texto_editor", dados);
 }
 
-
 socket.on("texto_editor_clientes", (texto) => {
     atualizaTextoEditor(texto);
 });
 
+function emitirExcluirDocumento(nome) {
+    socket.emit("excluir_documento", nome);
+}
 
-export {emitirTextoEditor, selecionarDocumeneto};
+
+export {emitirTextoEditor, selecionarDocumeneto, emitirExcluirDocumento};

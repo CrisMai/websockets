@@ -34,5 +34,19 @@ function atualizaDocumento(nome, texto) {
     return atualizacao;
 }
 
+function excluirDocumento(nome) {
+    const resultado = documentosColecao.deleteOne({
+        nome
+    });
 
-export {encontrarDocumento, atualizaDocumento, obterDocumentos, adicionarDocumento};
+    return resultado;
+}
+
+
+export {
+    encontrarDocumento, 
+    atualizaDocumento, 
+    obterDocumentos, 
+    adicionarDocumento,
+    excluirDocumento,
+};
