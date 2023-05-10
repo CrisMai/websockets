@@ -16,11 +16,16 @@ function inserirLinkDocumento(nomeDocumento) {
         <a 
             href="documento.html?nome=${nomeDocumento}" 
             class="list-group-item list-group-item-action"
+            id="documento-${nomeDocumento}"
         >
             ${nomeDocumento}
         </a>
     `;
 }
 
+function removerLinkDocumento(nomeDocumento) {
+    const documento = document.getElementById(`documento-${nomeDocumento}`);
+    listaDocumento.removeChild(documento);
+}
 
-export {inserirLinkDocumento};
+export {inserirLinkDocumento, removerLinkDocumento};
