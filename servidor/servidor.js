@@ -9,6 +9,8 @@ import "./db/dbConnect.js";
 const app = express();
 const porta = process.env.porta || 3000;
 
+const servidorHttp2 = http.createServer(app);
+
 const caminhoAtual = url.fileURLToPath(import.meta.url);
 const diretorioPublico = path.join(caminhoAtual, "../..", "public");
 app.use(express.static(diretorioPublico));
