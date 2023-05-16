@@ -7,7 +7,7 @@ import io from "./servidor.js";
 import autorizarUsuario from "./middlewares/autorizarUsuario.js";
 
 
-io.use(autorizarUsuariosuario);
+io.use(autorizarUsuario);
 
 io.on("connection", (socket) => {
 
