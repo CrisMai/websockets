@@ -18,6 +18,8 @@ function registrarEventosDocumentos(socket, io) {
 
           const usuariosNoDocumento = obterUsuariosDocumento(nomeDocumento);
 
+          io.to(nomeDocumento).emit("usuarios_no_documento", usuariosNoDocumento);
+
           devolverTexto(documento.texto);
         }
       });

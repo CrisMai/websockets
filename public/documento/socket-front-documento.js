@@ -1,4 +1,4 @@
-import { alertarERedirecionar, atualizaTextoEditor, tratarAutorizacaoSucesso } from "./documento.js";
+import { alertarERedirecionar, atualizaTextoEditor, atualizarInterfaceUsuarios, tratarAutorizacaoSucesso } from "./documento.js";
 
 const socket = io("/usuarios", {
   auth: {
@@ -18,6 +18,8 @@ function selecionarDocumento(dadsoEntrada) {
     atualizaTextoEditor(texto);
   });
 }
+
+socket.on("usuarios_no_documento", atualizarInterfaceUsuariosrios)
 
 function emitirTextoEditor(dados) {
   socket.emit("texto_editor", dados);
