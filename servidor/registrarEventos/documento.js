@@ -6,7 +6,7 @@ import {
 
 
 function registrarEventosDocumentos(socket, io) {
-    socket.on("selecionar_documento", async (nomeDocumento, devolverTexto) => {
+    socket.on("selecionar_documento", async ({nomeDocumento, nomeUsuario}, devolverTexto) => {
         socket.join(nomeDocumento);
     
         const documento = await encontrarDocumento(nomeDocumento);
@@ -33,4 +33,4 @@ function registrarEventosDocumentos(socket, io) {
       });
 }
 
-export default registrarEventosDocumento;
+export default registrarEventosDocumentos;
