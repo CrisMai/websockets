@@ -22,9 +22,8 @@ function registrarEventosDocumentos(socket, io) {
 
           devolverTexto(documento.texto);
         }
-      });
-    
-      socket.on("texto_editor", async ({ texto, nomeDocumento }) => {
+
+        socket.on("texto_editor", async ({ texto, nomeDocumento }) => {
         const atualizacao = await atualizaDocumento(nomeDocumento, texto);
     
         if (atualizacao.modifiedCount) {
@@ -39,6 +38,13 @@ function registrarEventosDocumentos(socket, io) {
           io.emit("excluir_documento_sucesso", nome);
         }
       });
+
+      socket.on("disconnect", () => {
+        console.log(`Cliente ${socket.id} foi desconectado!`);
+      });
+    }
+  );
+   
 }
 
 export default registrarEventosDocumentos;
